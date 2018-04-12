@@ -52,7 +52,7 @@ function get_wikipage(search_text){
 		async: false,
 		dataType: "json",
 		success: function (data, textStatus, jqXHR) {
-			console.log(data);
+			//console.log(data);
 			$.each(data, function (i, item) {
 				if (i == 1) {
 					$('#pageload-result').html('');
