@@ -4,7 +4,7 @@ $(document).ready(function(){
 			if (search_text === '')
 				return;
 			$('#search').prop('disabled', true);			
-			searchWiki_2(search_text);
+			get_wikipage(search_text);
 			get_result_with_thumbnails(search_text);
 			$('#search').prop('disabled', false);
         });
@@ -47,7 +47,7 @@ function WikipediaAPIGetContent(search) {
 function get_wikipage(search_text){	
 	$.ajax({
 		type: "GET",
-		url: "http://en.wikipedia.org/w/api.php?action=opensearch&search=" + search_text + "&callback=?",
+		url: "http://en.wikipedia.org/w/api.php?action=opensearch&search=" + search_text + "&limit=1&format=json&callback=?",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		dataType: "json",
