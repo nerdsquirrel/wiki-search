@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 
 function WikipediaAPIGetContent(search) {
-	console.log(search);
+	//console.log(search);
         $.ajax({
             type: "GET",
             url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=" + search + "&callback=?",
@@ -20,15 +20,12 @@ function WikipediaAPIGetContent(search) {
             async: false,
             dataType: "json",
             success: function (data, textStatus, jqXHR) {
-				console.log(data);
-				 
-
+		//console.log(data);
                 var markup = data.parse.text["*"];
                 var blurb = $('<div></div>').html(markup);
 
                 // remove links as they will not work
                 blurb.find('a').each(function () { $(this).replaceWith($(this).html()); });
-
                 // remove any references
                 blurb.find('sup').remove();
 
